@@ -17,6 +17,6 @@ Under Ratings/HomeEnergyPerformance/HVACMechVentSystems/Systems/Type the allowed
     "Supply" has been added
     "Exhaust" has been added
     
-Under Ratings/WarningFlags/BuildingAttributeFlags a speeling error has been corrected for the element name
+Under Ratings/WarningFlags/BuildingAttributeFlags a spelling error has been corrected for the element name
 
     "AverageCeilingHeightValue"
