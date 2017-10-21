@@ -22,4 +22,5 @@ Under Ratings/WarningFlags/BuildingAttributeFlags a spelling error has been corr
     "AverageCeilingHeightValue"
     
 Updated to version 2.06 August 22, 2017
+
     added "TestedACH50" and "CFM25_CFA" to  Ratings / HomeEnergyPerformance / Enclosure element
