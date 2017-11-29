@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 	Copyright (c) 2017. Residential Energy Services Network (RESNET)
-	Version 2.06
-	Last Modified: August 22, 2017
+	Version 2.07
+	Last Modified: November 29, 2017
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
