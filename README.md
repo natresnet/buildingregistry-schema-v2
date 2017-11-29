@@ -24,3 +24,9 @@ Under Ratings/WarningFlags/BuildingAttributeFlags a spelling error has been corr
 Updated to version 2.06 August 22, 2017
 
     added "TestedACH50" and "CFM25_CFA" to  Ratings / HomeEnergyPerformance / Enclosure element
+
+Update to version 2.07 November 29, 2017
+
+    removed "TestedACH50" and "CFM25_CFA"
+    added Threshold to Type with annotation under MeasuredEnclosureTightness and DuctSystems
+    
