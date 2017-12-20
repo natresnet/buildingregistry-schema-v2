@@ -30,3 +30,7 @@ Update to version 2.07 November 29, 2017
     removed "TestedACH50" and "CFM25_CFA"
     added Threshold to Type with annotation under MeasuredEnclosureTightness and DuctSystems
     
+Update to version 2.07 December 20, 2017
+
+    Added new elements for Tested and Threshold envelope and duct leakage values and aded adn revised annotations
+    
