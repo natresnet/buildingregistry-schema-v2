@@ -972,7 +972,7 @@
 									<xs:sequence>
 										<xs:element name="MeasurementType">
 											<xs:annotation>
-												<xs:documentation>Type = Threshold for those Sampled Homes that are not field tested</xs:documentation>
+												<xs:documentation>All Ratings using Threshold Analsyis, including all Sampled and Threshold Ratings, must use this "Threshold Type"</xs:documentation>
 											</xs:annotation>
 											<xs:simpleType>
 												<xs:restriction base="xs:string">
@@ -983,36 +983,55 @@
 											</xs:simpleType>
 										</xs:element>
 										<xs:choice>
-											<xs:element name="SinglePoint">
+											<xs:element name="SinglePoint" minOccurs="0">
 												<xs:complexType>
 												<xs:all>
-												<xs:element name="cfm50" type="xs:float"/>
-												<xs:element name="ELA" type="xs:float"/>
+												<xs:element name="cfm50" type="xs:float"
+												maxOccurs="unbounded"/>
+												<xs:element name="ELA" type="xs:float"
+												maxOccurs="unbounded"/>
 												</xs:all>
 												</xs:complexType>
 											</xs:element>
-											<xs:element name="MultiPoint">
+											<xs:element name="MultiPoint" minOccurs="0">
 												<xs:complexType>
 												<xs:all>
-												<xs:element name="c" type="xs:float"/>
-												<xs:element name="n" type="xs:float"/>
-												<xs:element name="RSqrd" type="xs:float"/>
-												<xs:element name="ELA" type="xs:float"/>
+												<xs:element name="c" type="xs:float"
+												maxOccurs="unbounded"/>
+												<xs:element name="n" type="xs:float"
+												maxOccurs="unbounded"/>
+												<xs:element name="RSqrd" type="xs:float"
+												maxOccurs="unbounded"/>
+												<xs:element name="ELA" type="xs:float"
+												maxOccurs="unbounded"/>
 												</xs:all>
 												</xs:complexType>
 											</xs:element>
-											<xs:element name="Threshold">
+											<xs:element name="Threshold" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>
+														...Threshold values must be reported for all homes using this "Measurement Type"
+														...Tested values must be reported for all Threshold Ratings
+														...Tested values must be reported for all tested homes in Samples Ratings sample sets
+													</xs:documentation>
+												</xs:annotation>
 												<xs:complexType>
 												<xs:all>
-												<xs:element name="cfm50" type="xs:float"/>
-												<xs:element name="ELA" type="xs:float"/>
+												<xs:element name="cfm50Threshold" type="xs:float"
+												minOccurs="1" maxOccurs="unbounded"/>
+												<xs:element name="ELAThreshold" type="xs:float"
+												minOccurs="1" maxOccurs="unbounded"/>
+												<xs:element name="cfm50Tested" type="xs:float"
+												minOccurs="0" maxOccurs="unbounded"/>
+												<xs:element name="ELATested" type="xs:float"
+												minOccurs="0" maxOccurs="unbounded"/>
 												</xs:all>
 												</xs:complexType>
 											</xs:element>
 										</xs:choice>
 									</xs:sequence>
 									<xs:assert
-										test="(MeasurementType[text()] = 'SinglePoint' and exists(SinglePoint)) or (MeasurementType[text()] = 'MultiPoint' and exists(MultiPoint))"
+										test="(MeasurementType[text()] = 'SinglePoint' and exists(SinglePoint)) or (MeasurementType[text()] = 'MultiPoint' and exists(MultiPoint)) or (MeasurementType[text()] = 'Threshold' and exists(Theshold))"
 									/>
 								</xs:complexType>
 							</xs:element>
@@ -1025,7 +1044,7 @@
 												<xs:all>
 												<xs:element name="Type">
 												<xs:annotation>
-												<xs:documentation>Type = Threshold for Sampled Homes that are not tested</xs:documentation>
+												<xs:documentation>All Ratings using Threshold Analsyis, including all Sampled and Threshold Ratings, must use "Threshold Type"</xs:documentation>
 												</xs:annotation>
 												<xs:simpleType>
 												<xs:restriction base="xs:string">
@@ -1038,11 +1057,26 @@
 												<xs:element name="TestedLeakage" minOccurs="0">
 												<xs:complexType>
 												<xs:all>
-												<xs:element name="cfm25out" type="xs:float"/>
-												<xs:element name="cfm25total" type="xs:float"/>
-												<xs:element name="Qn" type="xs:float">
+												<xs:element name="cfm25outThreshold"
+												type="xs:float" minOccurs="0"/>
+												<xs:element name="cfm25totalThreshold"
+												type="xs:float" minOccurs="0"/>
+												<xs:element name="QnThreshold" type="xs:float"
+												minOccurs="0">
 												<xs:annotation>
-												<xs:documentation>Qn = cfm25out/CFA</xs:documentation>
+												<xs:documentation>...Threshold values required for all Sampled and Threshold Ratings</xs:documentation>
+												<xs:documentation>Qn=cfm25out/CFA</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="cfm25outTested" type="xs:float"
+												minOccurs="0"/>
+												<xs:element name="cfm25totalTested"
+												type="xs:float" minOccurs="0"/>
+												<xs:element name="QnTested" type="xs:float"
+												minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>...Tested values required for all Confirmed Ratings, all Threshold Ratings and for the tested home in sample set for Sampled Ratings</xs:documentation>
+												<xs:documentation>Qn=cfm25/CFA</xs:documentation>
 												</xs:annotation>
 												</xs:element>
 												</xs:all>
