@@ -1050,7 +1050,8 @@
 												<xs:restriction base="xs:string">
 												<xs:enumeration value="ductless"/>
 												<xs:enumeration value="ducted"/>
-												<xs:enumeration value="Threshold"/>
+												<xs:enumeration value="Threshold ductless"/>
+												<xs:enumeration value="Threshold ducted"/>
 												</xs:restriction>
 												</xs:simpleType>
 												</xs:element>
@@ -1064,7 +1065,8 @@
 												<xs:element name="QnThreshold" type="xs:float"
 												minOccurs="0">
 												<xs:annotation>
-												<xs:documentation>...Threshold values required for all Sampled and Threshold Ratings</xs:documentation>
+												<xs:documentation>If Threshold ducted, enter ...Threshold values required for all Sampled and Threshold Ratings</xs:documentation>
+												<xs:documentation>If Threshold ductless, enter zero (0) for all ...Threshold values</xs:documentation>
 												<xs:documentation>Qn=cfm25out/CFA</xs:documentation>
 												</xs:annotation>
 												</xs:element>
