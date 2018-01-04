@@ -1066,7 +1066,7 @@
 												minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>If Threshold ducted, enter ...Threshold values required for all Sampled and Threshold Ratings</xs:documentation>
-												<xs:documentation>If Threshold ductless, enter zero (0) for all ...Threshold values</xs:documentation>
+												<xs:documentation>If Threshold ductless, do not enter ...Threshold values</xs:documentation>
 												<xs:documentation>Qn=cfm25out/CFA</xs:documentation>
 												</xs:annotation>
 												</xs:element>
