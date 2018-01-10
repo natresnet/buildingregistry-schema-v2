@@ -32,11 +32,13 @@ Update to version 2.07 November 29, 2017
     
 Update to version 2.07 December 20, 2017
 
-    Added new elements for Tested and Threshold envelope and duct leakage values and aded adn revised annotations
+    Added new elements for Tested and Threshold envelope and duct leakage values and 
+    added and revised annotations
     
 Update to version 2.07 January 4, 2018
 
-    Added enumeration for "Threshold ductless" and "Threshold ducted" duct system Types. Modified documentation accordingly.
+    Added enumeration for "Threshold ductless" and "Threshold ducted" duct system Types. 
+    Modified documentation accordingly.
     
 Update to version 2.07 January 9, 2018
 
