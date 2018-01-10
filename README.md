@@ -37,3 +37,7 @@ Update to version 2.07 December 20, 2017
 Update to version 2.07 January 4, 2018
 
     Added enumeration for "Threshold ductless" and "Threshold ducted" duct system Types. Modified documentation accordingly.
+    
+Update to version 2.07 January 9, 2018
+
+    Added element for IADsave 
