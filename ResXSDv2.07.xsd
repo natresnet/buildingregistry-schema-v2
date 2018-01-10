@@ -2,7 +2,7 @@
 <!--
 	Copyright (c) 2017. Residential Energy Services Network (RESNET)
 	Version 2.07
-	Last Modified: January 4, 2018
+	Last Modified: January 9, 2018
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
@@ -430,6 +430,7 @@
 							<xs:element name="RefNOx" type="xs:float"/>
 							<xs:element name="OPPNet" type="xs:float"/>
 							<xs:element name="PEfrac" type="xs:float"/>
+							<xs:element name="IADsave" type="xs:float" minOccurs="0"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
