@@ -43,3 +43,9 @@ Update to version 2.07 January 4, 2018
 Update to version 2.07 January 9, 2018
 
     Added element for IADsave 
+
+Version 2.08 added
+
+    "IADsave" element added to Ratings
+    "propane" added to enumerations for HotWaterSystems Type
+    
