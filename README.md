@@ -49,3 +49,7 @@ Version 2.08 added March 8, 2018
     "IADsave" element added to Ratings
     "propane" added to enumerations for HotWaterSystems Type
     
+March 20, 2018
+
+    Added "UEF" enumeration to HotWaterSystem EfficiencyUnits
+    
