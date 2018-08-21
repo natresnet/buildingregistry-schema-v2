@@ -53,3 +53,6 @@ March 20, 2018
 
     Added "UEF" enumeration to HotWaterSystem EfficiencyUnits
     
+August 21, 2018
+
+    Added "Right-Energy HERS" enumeration to Ratings/Registry/Software
