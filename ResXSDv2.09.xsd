@@ -2,7 +2,7 @@
 <!--
 	Copyright (c) 2018. Residential Energy Services Network (RESNET)
 	Version 2.08
-	Last Modified: March 20, 2018
+	Last Modified: August 21, 2018
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
