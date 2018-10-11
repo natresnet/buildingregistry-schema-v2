@@ -56,3 +56,8 @@ March 20, 2018
 August 21, 2018
 
     Added "Right-Energy HERS" enumeration to Ratings/Registry/Software
+
+October 11, 2018
+
+    Adde six new elements for Tier I and Tier II lighting for Interior, Exterior and Garage lighting
+    
