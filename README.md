@@ -59,5 +59,5 @@ August 21, 2018
 
 October 11, 2018
 
-    Adde six new elements for Tier I and Tier II lighting for Interior, Exterior and Garage lighting
+    Added six new elements for Tier I and Tier II lighting for Interior, Exterior and Garage lighting
     
