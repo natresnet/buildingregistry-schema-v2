@@ -61,3 +61,6 @@ October 11, 2018
 
     Added six new elements for Tier I and Tier II lighting for Interior, Exterior and Garage lighting
     
+May 1, 2019
+
+    Added new enumerations for new EPA multifamily and single family enumerations 
