@@ -63,4 +63,4 @@ October 11, 2018
     
 May 1, 2019
 
-    Added new enumerations for new EPA multifamily and single family enumerations 
+    Added new enumerations for new EPA multifamily and single family enumerations. Updated version number to 2.11.
