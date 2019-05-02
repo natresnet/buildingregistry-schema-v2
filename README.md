@@ -64,3 +64,8 @@ October 11, 2018
 May 1, 2019
 
     Added new enumerations for new EPA multifamily and single family enumerations. Updated version number to 2.11.
+
+May 2, 2019
+
+    Revised version 2.11 to remove PermitRequired element and dded Puerto Rico and US Virgin Islands enumeration for EPA
+    
