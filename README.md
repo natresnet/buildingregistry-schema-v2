@@ -69,3 +69,7 @@ May 2, 2019
 
     Revised version 2.11 to remove PermitRequired element and dded Puerto Rico and US Virgin Islands enumeration for EPA
     
+May 28, 2019
+
+    Added Standard301Version element to Ratings>Registry as optional input field. Updated Version Number to v2.12
+    
