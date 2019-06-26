@@ -73,3 +73,7 @@ May 28, 2019
 
     Added Standard301Version element to Ratings>Registry as optional input field. Updated Version Number to v2.12
     
+June 26, 2019
+
+    Added optional element EPAAppID for EPA Rater Pro Application ID to be assinged by the EPA Application
+
