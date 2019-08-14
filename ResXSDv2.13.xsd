@@ -65,9 +65,9 @@
 			<xs:enumeration value="SD"/>
 			<xs:enumeration value="TN"/>
 			<xs:enumeration value="TX"/>
-			<xs:enumeration value="USVI"/>
 			<xs:enumeration value="UT"/>
-			<xs:enumeration value="VA"/>			
+			<xs:enumeration value="VA"/>
+			<xs:enumeration value="VI"/>
 			<xs:enumeration value="VT"/>
 			<xs:enumeration value="WA"/>
 			<xs:enumeration value="WV"/>
