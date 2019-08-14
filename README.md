@@ -77,3 +77,8 @@ June 26, 2019
 
     Added optional element EPAAppID for EPA Rater Pro Application ID to be assinged by the EPA Application
 
+August 14, 2019
+
+    Revised version number to 2.13. Added US Virgin Islands to State enumeration list. Added TestedLeakageException element to Ratings > HomeEnergyPerformance > DuctSystems > System element
+    
+   
