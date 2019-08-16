@@ -2,7 +2,7 @@
 <!--
 	Copyright (c) 2018. Residential Energy Services Network (RESNET)
 	Version 2.13
-	Last Modified: August 14, 2019
+	Last Modified: August 16, 2019
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
@@ -1126,50 +1126,28 @@
 												</xs:element>
 												<xs:element name="TestedLeakageException">
 												<xs:annotation>
-												<xs:documentation>If there are no qualified testing exceptions, TestedLeakage entries are required.</xs:documentation>
+												<xs:documentation>Dwelling must be qualified for testing exception or TestedLeakage entries are required.</xs:documentation>
 												</xs:annotation>
 												<xs:complexType>
 												<xs:all>
-												<xs:element name="Qualification1"
+												<xs:element name="QualificationCertification"
 												type="xs:boolean" default="false" minOccurs="1">
 												<xs:annotation>
-												<xs:documentation>Qualification #1 is for Detached dwellings and Townhouses. It requires that 100% of the ductwork and air handler unit are visually verified to be visible and inside conditioned space at pre-drywall stage.</xs:documentation>
+												<xs:documentation>Certifies that this dwelling unit meets the requirements for duct testing exemption in accordance with the RESNET Standard.</xs:documentation>
 												</xs:annotation>
 												</xs:element>
-												<xs:element name="Qualification2"
-												type="xs:boolean" default="false" minOccurs="1">
-												<xs:annotation>
-												<xs:documentation>Qualification #2 is for Detached Dwellings and Townhouses. It requires that 100% of air distribution system is visually verified to be fully ducted with no building cavities used as supply or return ducts at pre-drywall stage.</xs:documentation>
-												</xs:annotation>
+												<xs:element name="ExceptionType" minOccurs="0">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="TestExemptDSE"/>
+												<xs:enumeration value="TotalLeakAlternative"/>
+												</xs:restriction>
+												</xs:simpleType>
 												</xs:element>
-												<xs:element name="Qualification3"
-												type="xs:boolean" default="false" minOccurs="1">
-												<xs:annotation>
-												<xs:documentation>Qualification #3 is for attached Dwelling Units. It requires Total Duct Leakage testing, the percentage of duct systems in conditioned space and whether the air handler unit is inside or outside the conditined space volume of the dwelling.</xs:documentation>
-												</xs:annotation>
-												</xs:element>
-												<xs:element name="DistributionSystemEfficiency"
-												type="xs:float" minOccurs="0">
-												<xs:annotation>
-												<xs:documentation>Air Distribution System Efficiency (DSE) value used in the simulation of Attached Dwelling or Townhouses for a Rated Dwelling Unit that is qualified for Tested Leakage Exception if Total Duct Leakage Test is not performed. Not required if Total Duct Leakage Test is performed.</xs:documentation>
-												</xs:annotation>
-												</xs:element>
-												<xs:element name="TotalDuctLeakageDetached"
+												<xs:element name="TotalLeakTestValue"
 												type="xs:float" minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>Total Duct Leakage test result value (cfm25 - cubic feet per minute at 25 Pa pressurization) obtained from testing of the Rated Dwelling Unit that is qualified for Tested Leakge Exception.</xs:documentation>
-												</xs:annotation>
-												</xs:element>
-												<xs:element name="DuctLeakageOutsideDetached"
-												type="xs:float" minOccurs="0">
-												<xs:annotation>
-												<xs:documentation>Duct Leakage To outside value (cfm25 - cubic feet per minute at 25 Pa pressurization) used in the simulation of the Rated Dwelling Unit that is qualified for Tested Leakage Exception when Total Duct Leakage Test is performed.</xs:documentation>
-												</xs:annotation>
-												</xs:element>
-												<xs:element name="TotalDuctLeakageAttached"
-												type="xs:float" minOccurs="0">
-												<xs:annotation>
-												<xs:documentation>Total Duct Leakage test result value (cfm25 - cubic feet per minute at 25 Pa pressurization) obtained from testing of the Attached Rated Dwelling Unit that is qualified for Tested Leakge Exception.</xs:documentation>
 												</xs:annotation>
 												</xs:element>
 												<xs:element name="PercentDuctInsideAttached"
