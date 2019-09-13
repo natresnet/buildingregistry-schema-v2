@@ -81,4 +81,8 @@ August 14, 2019
 
     Revised version number to 2.13. Added US Virgin Islands to State enumeration list. Added TestedLeakageException element to Ratings > HomeEnergyPerformance > DuctSystems > System element
     
-   
+September 13, 2019
+
+    Modified TestedLeakageException element to make it optional
+    
+    
