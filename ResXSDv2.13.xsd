@@ -2,7 +2,7 @@
 <!--
 	Copyright (c) 2018. Residential Energy Services Network (RESNET)
 	Version 2.13
-	Last Modified: August 16, 2019
+	Last Modified: September 13, 2019
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
@@ -1124,7 +1124,8 @@
 												</xs:restriction>
 												</xs:simpleType>
 												</xs:element>
-												<xs:element name="TestedLeakageException">
+												<xs:element name="TestedLeakageException"
+												minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>Dwelling must be qualified for testing exception or TestedLeakage entries are required.</xs:documentation>
 												</xs:annotation>
