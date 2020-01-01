@@ -2,7 +2,7 @@
 <!--
 	Copyright (c) 2018. Residential Energy Services Network (RESNET)
 	Version 2.13
-	Last Modified: September 13, 2019
+	Last Modified: January 1, 2020
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
@@ -999,11 +999,12 @@
 												<xs:element name="Type">
 												<xs:simpleType>
 												<xs:restriction base="xs:string">
-												<xs:enumeration value="electric"/>
-												<xs:enumeration value="gas"/>
-												<xs:enumeration value="propane"/>
-												<xs:enumeration value="oil"/>
-												<xs:enumeration value="combo"/>
+													<xs:enumeration value="electric"/>
+													<xs:enumeration value="gas"/>
+													<xs:enumeration value="oil"/>
+													<xs:enumeration value="propane"/>
+													<xs:enumeration value="biomass"/>
+													<xs:enumeration value="combo"/>
 												</xs:restriction>
 												</xs:simpleType>
 												</xs:element>
