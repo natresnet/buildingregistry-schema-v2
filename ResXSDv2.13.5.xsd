@@ -1,0 +1,1818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018. Residential Energy Services Network (RESNET)
+	Version 2.13
+	Last Modified: January 1, 2020
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:simpleType name="float-or-empty">
+		<xs:union memberTypes="xs:float empty-string"/>
+	</xs:simpleType>
+	<xs:simpleType name="empty-string">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value=""/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="state">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AK"/>
+			<xs:enumeration value="AL"/>
+			<xs:enumeration value="AR"/>
+			<xs:enumeration value="AL"/>
+			<xs:enumeration value="AK"/>
+			<xs:enumeration value="AR"/>
+			<xs:enumeration value="AZ"/>
+			<xs:enumeration value="CA"/>
+			<xs:enumeration value="CO"/>
+			<xs:enumeration value="CT"/>
+			<xs:enumeration value="DC"/>
+			<xs:enumeration value="DE"/>
+			<xs:enumeration value="FL"/>
+			<xs:enumeration value="GA"/>
+			<xs:enumeration value="HI"/>
+			<xs:enumeration value="ID"/>
+			<xs:enumeration value="IL"/>
+			<xs:enumeration value="IN"/>
+			<xs:enumeration value="IA"/>
+			<xs:enumeration value="KS"/>
+			<xs:enumeration value="KY"/>
+			<xs:enumeration value="LA"/>
+			<xs:enumeration value="ME"/>
+			<xs:enumeration value="MD"/>
+			<xs:enumeration value="MA"/>
+			<xs:enumeration value="MI"/>
+			<xs:enumeration value="MN"/>
+			<xs:enumeration value="MS"/>
+			<xs:enumeration value="MO"/>
+			<xs:enumeration value="MT"/>
+			<xs:enumeration value="NE"/>
+			<xs:enumeration value="NH"/>
+			<xs:enumeration value="NV"/>
+			<xs:enumeration value="NJ"/>
+			<xs:enumeration value="NM"/>
+			<xs:enumeration value="NY"/>
+			<xs:enumeration value="NC"/>
+			<xs:enumeration value="ND"/>
+			<xs:enumeration value="OH"/>
+			<xs:enumeration value="OK"/>
+			<xs:enumeration value="OR"/>
+			<xs:enumeration value="PA"/>
+			<xs:enumeration value="PR"/>
+			<xs:enumeration value="RI"/>
+			<xs:enumeration value="SC"/>
+			<xs:enumeration value="SD"/>
+			<xs:enumeration value="TN"/>
+			<xs:enumeration value="TX"/>
+			<xs:enumeration value="UT"/>
+			<xs:enumeration value="VA"/>
+			<xs:enumeration value="VI"/>
+			<xs:enumeration value="VT"/>
+			<xs:enumeration value="WA"/>
+			<xs:enumeration value="WV"/>
+			<xs:enumeration value="WI"/>
+			<xs:enumeration value="WY"/>
+			<xs:enumeration value=""/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Ratings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Revision" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="RegistryID">
+								<xs:simpleType>
+									<xs:annotation>
+										<xs:documentation>9-digit Numeric RegistryID</xs:documentation>
+									</xs:annotation>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[0-9]{9}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="RevisionReason" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="RatingType">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Confirmed"/>
+							<xs:enumeration value="Confirmed Rating"/>
+							<xs:enumeration value="Confirmed Threshold"/>
+							<xs:enumeration value="Confirmed Threshold Rating"/>
+							<xs:enumeration value="Sampled"/>
+							<xs:enumeration value="Sampled Rating"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Verifiers" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence maxOccurs="unbounded">
+							<xs:element name="Verifier" minOccurs="1" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:all>
+										<xs:element name="Name" type="xs:string"/>
+										<xs:element name="ID" type="xs:string">
+											<xs:annotation>
+												<xs:documentation/>
+											</xs:annotation>
+										</xs:element>
+									</xs:all>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="IECCcomplianceERI" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="IECCversion">
+								<xs:simpleType>
+									<xs:annotation>
+										<xs:documentation>Enter 4-digit year of IECC code</xs:documentation>
+									</xs:annotation>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[0-9]{4}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="ERIscore">
+								<xs:simpleType>
+									<xs:annotation>
+										<xs:documentation>Enter ERI score</xs:documentation>
+									</xs:annotation>
+									<xs:restriction base="xs:integer"> </xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Building">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Address" type="xs:string"/>
+							<xs:element name="Address2" type="xs:string"/>
+							<xs:element name="City" type="xs:string"/>
+							<xs:element name="State" type="state"/>
+							<xs:element name="Zip" type="xs:string"/>
+							<xs:element name="Builder" type="xs:string"/>
+							<xs:element name="Community" type="xs:string"/>
+							<xs:element name="PlanName" type="xs:string"/>
+							<xs:element name="Model" type="xs:string"/>
+							<xs:element name="Development" type="xs:string"/>
+							<xs:element name="ConstructionYear">
+								<xs:simpleType>
+									<xs:annotation>
+										<xs:documentation>4-digit Year</xs:documentation>
+									</xs:annotation>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[0-9]{4}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="PermitDate" type="xs:date" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>enter Building Permit Date as YYYY-MM-DD</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Registry">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ProviderID">
+								<xs:simpleType>
+									<xs:annotation>
+										<xs:documentation>ProviderID in the form XXXX-XXX</xs:documentation>
+									</xs:annotation>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[0-9]{4}[-][0-9]{3}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="RaterID">
+								<xs:simpleType>
+									<xs:annotation>
+										<xs:documentation>RaterID in the form XXXXXXX</xs:documentation>
+									</xs:annotation>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[0-9]{7}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="RatingCompany" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Enter name of Rating Company</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ProviderSampleSetID" default="00000000">
+								<xs:simpleType>
+									<xs:annotation>
+										<xs:documentation>ProviderSampleSetID in the form XXXXXXXX</xs:documentation>
+									</xs:annotation>
+									<xs:restriction base="xs:string">
+										<xs:pattern value="[A-Z0-9]{4,8}"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="DateRated" type="xs:date">
+								<xs:annotation>
+									<xs:documentation>"Date Rated shall be the date of the final inspection"</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ClimateZoneNo">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="1A"/>
+										<xs:enumeration value="1B"/>
+										<xs:enumeration value="2A"/>
+										<xs:enumeration value="2B"/>
+										<xs:enumeration value="3A"/>
+										<xs:enumeration value="3B"/>
+										<xs:enumeration value="3C"/>
+										<xs:enumeration value="4A"/>
+										<xs:enumeration value="4B"/>
+										<xs:enumeration value="4C"/>
+										<xs:enumeration value="5A"/>
+										<xs:enumeration value="5B"/>
+										<xs:enumeration value="6A"/>
+										<xs:enumeration value="6B"/>
+										<xs:enumeration value="7A"/>
+										<xs:enumeration value="7B"/>
+										<xs:enumeration value="8A"/>
+										<xs:enumeration value="8B"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Status" default="New">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="New"/>
+										<xs:enumeration value="Existing"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="HomeTypeID" default="1">
+								<xs:simpleType>
+									<xs:annotation>
+										<xs:documentation>Single-Family=1, Duplex=2, Low-rise Multi-family=3, High-rise Multi-family=4</xs:documentation>
+									</xs:annotation>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="1"/>
+										<xs:enumeration value="2"/>
+										<xs:enumeration value="3"/>
+										<xs:enumeration value="4"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="ConditionedArea" type="xs:float"/>
+							<xs:element name="ConditionedVolume" type="xs:float"/>
+							<xs:element name="NumberBedrooms" type="xs:nonNegativeInteger"/>
+							<xs:element name="ConditionedBasementArea" type="xs:float" default="0"/>
+							<xs:element name="UnconditionedBasementArea" type="xs:float" default="0"/>
+							<xs:element name="Software">
+								<xs:simpleType>
+									<xs:annotation>
+										<xs:documentation>RemRate=1, EnergyGauge=2, EnergyInsights=3, OptiMiser=4, Ekotrope=5, Right-Energy HERS=6</xs:documentation>
+									</xs:annotation>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="1"/>
+										<xs:enumeration value="2"/>
+										<xs:enumeration value="3"/>
+										<xs:enumeration value="4"/>
+										<xs:enumeration value="5"/>
+										<xs:enumeration value="6"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="SoftwareVersion" type="xs:string"/>
+							<xs:element name="EPAAppID" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Optional EPA Rater Pro App ID as assigned by the EPA App</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Standard301Version" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Publication Year of RESNET/ICC 301 Standard used to determine the HERS Rating</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="2014"/>
+										<xs:enumeration value="2019"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="InputFile" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>CDATA tag must be used to enclose the InputFile string</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Notes" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Rating">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="HERSIndex" type="xs:integer"/>
+							<xs:element name="AnnualElectricity" type="xs:float" default="0"/>
+							<xs:element name="AnnualGas" type="xs:float" default="0"/>
+							<xs:element name="AnnualOil" type="xs:float" default="0"/>
+							<xs:element name="AnnualPropane" type="xs:float" default="0"/>
+							<xs:element name="AnnualOPP" type="xs:float" default="0"/>
+							<xs:element name="AnnualOther" type="xs:float" default="0"/>
+							<xs:element name="PriceElectricity" type="float-or-empty"/>
+							<xs:element name="PriceGas" type="float-or-empty"/>
+							<xs:element name="PriceOil" type="float-or-empty"/>
+							<xs:element name="PricePropane" type="float-or-empty"/>
+							<xs:element name="CostHeating" type="xs:float" default="0"/>
+							<xs:element name="CostCooling" type="xs:float" default="0"/>
+							<xs:element name="CostHotWater" type="xs:float" default="0"/>
+							<xs:element name="CostLighting" type="xs:float" default="0"/>
+							<xs:element name="CostAppliances" type="xs:float" default="0"/>
+							<xs:element name="CostOPP" default="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:float">
+										<xs:maxInclusive value="0"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="CostTotal" type="xs:float" default="0"/>
+							<xs:element name="RateECHeating" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Heating Energy Consumption (EC_x) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RateECCooling" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Cooling Energy Consumption (EC_x) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RateECHotWater" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Hot Water Energy Consumption (EC_x) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RateECLgtApl" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Lighting and Appliance Energy Consumption (EULLA) in the Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="nMEULHeating" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Heating normalized Modified End Use Load (nMEUL) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="nMEULCooling" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Cooling normalized Modified End Use Load (nMEUL) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="nMEULHotWater" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Hot Water normalized Modified End Use Load (nMEUL) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="nMEULLgtApl" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Lighting and Alliance load (EULLA) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="nECHeating" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>normalized Heating Energy Consumption (nEC_x) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="nECCooling" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>normalized Cooling Energy Consumption (nEC_x) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="nECHotWater" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>normalized Hot Water Energy Consumption (nEC_x) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="nECLgtApl" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Lighting and Appliance Energy Consumption (EULLA) in Rated Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="CO2" type="xs:float"/>
+							<xs:element name="SOx" type="xs:float"/>
+							<xs:element name="NOx" type="xs:float"/>
+							<xs:element name="RefCostHeating" type="xs:float"/>
+							<xs:element name="RefCostCooling" type="xs:float"/>
+							<xs:element name="RefCostHotWater" type="xs:float"/>
+							<xs:element name="RefCostLighting" type="xs:float"/>
+							<xs:element name="RefCostAppliances" type="xs:float"/>
+							<xs:element name="RefCostTotal" type="xs:float"/>
+							<xs:element name="RefEULHeating" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Heating Load (REUL) in Reference Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RefEULCooling" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Cooling Load (REUL) in Reference Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RefEULHotWater" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Hot Water Load (REUL) in Reference Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RefEULLgtApl" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Lighting and Appliance Load (REULLA) in Reference Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RefECHeating" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Heating Energy Consumption (EC_r) in Reference Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RefECCooling" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Cooling Energy Consumption (EC_r) in Reference Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RefECHotWater" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Hot Water Energy Consumption (EC_r) in Reference Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RefECLgtApl" type="xs:float">
+								<xs:annotation>
+									<xs:documentation>Lighting and Appliance Energy Consumption (REULLA) in Reference Home (MBtu)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="RefCO2" type="xs:float"/>
+							<xs:element name="RefSOx" type="xs:float"/>
+							<xs:element name="RefNOx" type="xs:float"/>
+							<xs:element name="OPPNet" type="xs:float"/>
+							<xs:element name="PEfrac" type="xs:float"/>
+							<xs:element name="IADsave" type="xs:float" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BuildersChallenge" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="BuilderPlanNo" type="xs:string"/>
+							<xs:element name="BuilderContact" type="xs:string"/>
+							<xs:element name="BuilderPhone" type="xs:string"/>
+							<xs:element name="BuilderEmail" type="xs:string"/>
+							<xs:element name="Developer" type="xs:string"/>
+							<xs:element name="DeveloperContact" type="xs:string"/>
+							<xs:element name="DeveloperPhone" type="xs:string"/>
+							<xs:element name="DeveloperEmail" type="xs:string"/>
+							<xs:element name="eScaleAttn" type="xs:string"/>
+							<xs:element name="eScaleAddress" type="xs:string"/>
+							<xs:element name="eScaleCity" type="xs:string"/>
+							<xs:element name="eScaleState" type="state" nillable="true"/>
+							<xs:element name="eScaleZip" type="xs:string"/>
+							<xs:element name="eScalePhone" type="xs:string"/>
+							<xs:element name="EnergyCostAnnually" type="xs:float" default="0"/>
+							<xs:element name="EnergyCostMonthly" type="xs:float" default="0"/>
+							<xs:element name="Electricity" type="xs:float" default="0"/>
+							<xs:element name="Gas" type="xs:float" default="0"/>
+							<xs:element name="Oil" type="xs:float" default="0"/>
+							<xs:element name="Propane" type="xs:float" default="0"/>
+							<xs:element name="SavingsElectricity" type="xs:float" default="0"/>
+							<xs:element name="SavingsGas" type="xs:float" default="0"/>
+							<xs:element name="SavingsOil" type="xs:float" default="0"/>
+							<xs:element name="SavingsPropane" type="xs:float" default="0"/>
+							<xs:element name="ReductionCO2" type="xs:float" default="0"/>
+							<xs:element name="ReductionSOx" type="xs:float" default="0"/>
+							<xs:element name="ReductionNOx" type="xs:float" default="0"/>
+							<xs:element name="QualityCriteria" type="xs:boolean" default="false"/>
+							<xs:element name="DisplayEnergyCostAnnually" type="xs:boolean"
+								default="false"/>
+							<xs:element name="DisplayEnergyCostMonthly" type="xs:boolean"
+								default="false"/>
+							<xs:element name="EnergyStar" type="xs:boolean" default="false"/>
+							<xs:element name="EFL" type="xs:boolean" default="false"/>
+							<xs:element name="LEED" type="xs:boolean" default="false"/>
+							<xs:element name="GreenBuild" type="xs:boolean" default="false"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="EnergyStarV2" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="TBCCertification" type="xs:boolean" default="false"/>
+							<xs:element name="AirConditioner" type="xs:boolean" default="false"/>
+							<xs:element name="HeatPump" type="xs:boolean" default="false"/>
+							<xs:element name="Furnace" type="xs:boolean" default="false"/>
+							<xs:element name="Windows" type="xs:boolean" default="false"/>
+							<xs:element name="WaterHeater" type="xs:boolean" default="false"/>
+							<xs:element name="Refrigerator" type="xs:boolean" default="false"/>
+							<xs:element name="Dishwasher" type="xs:boolean" default="false"/>
+							<xs:element name="Washer" type="xs:boolean" default="false"/>
+							<xs:element name="Dryer" type="xs:boolean" default="false"/>
+							<xs:element name="Lights" type="xs:nonNegativeInteger" default="0"/>
+							<xs:element name="CeilingFans" type="xs:nonNegativeInteger" default="0"
+							/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="TaxCredit" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="QualUseHeating" type="xs:float"/>
+							<xs:element name="QualUseCooling" type="xs:float"/>
+							<xs:element name="QualUseTotal" type="xs:float"/>
+							<xs:element name="QualLoadHeating" type="xs:float"/>
+							<xs:element name="QualLoadCooling" type="xs:float"/>
+							<xs:element name="QualLoadTotal" type="xs:float"/>
+							<xs:element name="RefUseHeating" type="xs:float"/>
+							<xs:element name="RefUseCooling" type="xs:float"/>
+							<xs:element name="RefUseTotal" type="xs:float"/>
+							<xs:element name="RefLoadHeating" type="xs:float"/>
+							<xs:element name="RefLoadCooling" type="xs:float"/>
+							<xs:element name="RefLoadTotal" type="xs:float"/>
+							<xs:element name="UseSavings" type="xs:float"/>
+							<xs:element name="LoadSavings" type="xs:float"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="EEM" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MonthlyEnergySavings" type="xs:float" default="0"/>
+							<xs:element name="EnergyValue" type="xs:float" default="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="EEP">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="EEPQualified" type="xs:boolean" default="false"
+								minOccurs="1">
+								<xs:annotation>
+									<xs:documentation>Energy Efficiency Program Qualified?</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="ProgramType" minOccurs="0">
+								<xs:complexType>
+									<xs:all>
+										<xs:element name="EPA" type="EPAEstarType" minOccurs="0"
+											maxOccurs="1"/>
+										<xs:element name="DOE" type="DOEZERHType" minOccurs="0"
+											maxOccurs="1"/>
+										<xs:element name="OPQ" type="OPQType" minOccurs="0"
+											maxOccurs="1"/>
+									</xs:all>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:assert
+							test="(((EEPQualified = false()) and not(ProgramType)) or ((EEPQualified = true()) and exists(ProgramType) and (count(./ProgramType/*) gt 0)))"
+						/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="HomeEnergyPerformance">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Enclosure" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence minOccurs="1">
+										<xs:element name="ABGradeFloorA" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>[A = ∑ Ai  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ABGradeFloorUo" type="xs:float"
+											minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>[Uo = (∑ (Ui * Ai)) / A  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="GroundContactFloorA" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>[A = ∑ Ai  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="GroundContactFloorUo" type="xs:float"
+											minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>[Uo = (∑ (Ui * Ai)) / A  for i = 1, n] [exterior film coeff = 0]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="CeilingA" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>[A = ∑ Ai  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="CeilingUo" type="xs:float" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>[Uo = (∑ (Ui * Ai)) / A  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ABGradeWallA" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>[A = ∑ Ai  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ABGradeWallUo" type="xs:float"
+											minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>[Uo = (∑ (Ui * Ai)) / A  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="GroundContactWallA" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>[A = ∑ Ai  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="GroundContactWallUo" type="xs:float"
+											minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>[Uo = (∑ (Ui * Ai)) / A  for i = 1, n]  [exterior film coeff = 0]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="WindowA" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>[A = ∑ Ai  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="WindowUo" type="xs:float" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>[Uo = (∑ (Ui * Ai)) / A  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="WindowSHGC" type="xs:float" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>[SHGCo = (∑ (SHGCi * Ai)) / A  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="DoorA" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>[A = ∑ Ai  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="DoorUo" type="xs:float" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>[Uo = (∑ (Ui * Ai)) / A  for i = 1, n]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="OverallEnclosureUA" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>[Enclosure UA = AG Floor (Uo*A) + Ceiling (Uo*A) + AG Wall (Uo*A) + Window (Uo*A) + Door (Uo*A)]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+									<xs:assert
+										test="((ABGradeFloorA[text()] = 0 and not(ABGradeFloorUo)) or (ABGradeFloorA[text()] gt 0 and exists(ABGradeFloorUo)))"/>
+									<xs:assert
+										test="((GroundContactFloorA[text()] = 0 and not(GroundContactFloorUo)) or (GroundContactFloorA[text()] gt 0 and exists(GroundContactFloorUo)))"/>
+									<xs:assert
+										test="((CeilingA[text()] = 0 and not(CeilingUo)) or (CeilingA[text()] gt 0 and exists(CeilingUo)))"/>
+									<xs:assert
+										test="((ABGradeWallA[text()] = 0 and not(ABGradeWallUo)) or (ABGradeWallA[text()] gt 0 and exists(ABGradeWallUo)))"/>
+									<xs:assert
+										test="((GroundContactWallA[text()] = 0 and not(GroundContactWallUo)) or (GroundContactWallA[text()] gt 0 and exists(GroundContactWallUo)))"/>
+									<xs:assert
+										test="((WindowA[text()] = 0 and not(WindowUo) and not(WindowSHGC)) or (WindowA[text()] gt 0 and exists(WindowUo) and exists(WindowSHGC)))"/>
+									<xs:assert
+										test="((DoorA[text()] = 0 and not(DoorUo)) or (DoorA[text()] gt 0 and exists(DoorUo)))"/>
+									<xs:assert test="OverallEnclosureUA[text()] gt 0"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="HVACHeatingSystems" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="System" minOccurs="1"
+											maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+												<xs:element name="Fuel">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="electric"/>
+												<xs:enumeration value="gas"/>
+												<xs:enumeration value="oil"/>
+												<xs:enumeration value="propane"/>
+												<xs:enumeration value="biomass"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="Type">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="standard"/>
+												<xs:enumeration value="combo"/>
+												<xs:enumeration value="HeatPump"/>
+												<xs:enumeration value="other"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="RatingMetric">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="HSPF"/>
+												<xs:enumeration value="COP"/>
+												<xs:enumeration value="AFUE"/>
+												<xs:enumeration value="cAFUE"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="RatingValue" type="xs:float">
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="RatedOutputCapacity"
+												type="xs:float">
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="NumHVACHeatingSystems" type="xs:int"
+										default="1"/>
+									<xs:assert test="(@NumHVACHeatingSystems = count(System))"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="HVACCoolingSystems" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="System" minOccurs="1"
+											maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+												<xs:element name="Type">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="electric"/>
+												<xs:enumeration value="gas"/>
+												<xs:enumeration value="other"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="RatingMetric">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="SEER"/>
+												<xs:enumeration value="EER"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="RatingValue" type="xs:float">
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="RatedOutputCapacity"
+												type="xs:float">
+												<xs:annotation>
+												<xs:documentation>Rated Output Capacity (kBtu/h)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="NumHVACCoolingSystems" type="xs:int"
+										default="1"/>
+									<xs:assert test="(@NumHVACCoolingSystems = count(System))"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="HVACMechVentSystems" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="System" minOccurs="0"
+											maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+												<xs:element name="Type">
+												<xs:annotation>
+												<xs:documentation>The following mechanical ventilation system Types are acceptable: none, Supply, Exhaust, HRV, ERV, CFIS, hybrid or other</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="none"/>
+												<xs:enumeration value="Supply">
+												<xs:annotation>
+												<xs:documentation>A Supply-only ventilation system that brings in outdoor air</xs:documentation>
+												</xs:annotation>
+												</xs:enumeration>
+												<xs:enumeration value="Exhaust">
+												<xs:annotation>
+												<xs:documentation>An Exhaust-only ventilation system that exhausts indoor air</xs:documentation>
+												</xs:annotation>
+												</xs:enumeration>
+												<xs:enumeration value="HRV">
+												<xs:annotation>
+												<xs:documentation>A Heat Recovery Ventilator (HRV) is a Balanced System</xs:documentation>
+												</xs:annotation>
+												</xs:enumeration>
+												<xs:enumeration value="ERV">
+												<xs:annotation>
+												<xs:documentation>An Energy Recovery Ventilator (ERV) is a Balanced System</xs:documentation>
+												</xs:annotation>
+												</xs:enumeration>
+												<xs:enumeration value="CFIS">
+												<xs:annotation>
+												<xs:documentation>A Central Fan Integrated System (CFIS) or "Air Cycler" is a Supply ventilation system using the AHU to bring in and distribute outdoor air</xs:documentation>
+												</xs:annotation>
+												</xs:enumeration>
+												<xs:enumeration value="hybrid"/>
+												<xs:enumeration value="other"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="VentFanFlowRate" type="xs:float">
+												<xs:annotation>
+												<xs:documentation>Vent fan flow rate in cfm</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="VentFanPower" type="xs:float">
+												<xs:annotation>
+												<xs:documentation>Vent fan power in watts</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="VentFanRunTime" type="xs:float">
+												<xs:annotation>
+												<xs:documentation>Vent fan run time hours per day</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="NumHVACMechVentSystems" type="xs:int"
+										use="required"/>
+									<xs:assert test="(@NumHVACMechVentSystems = count(System))"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="HVACDehumidificationSystems" minOccurs="1"
+								maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="System" minOccurs="0"
+											maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+												<xs:element name="Type">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="none"/>
+												<xs:enumeration value="standard"/>
+												<xs:enumeration value="eStar"/>
+												<xs:enumeration value="other"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="Capacity" type="xs:float">
+												<xs:annotation>
+												<xs:documentation>Capacity in liters per day</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="Efficiency" type="xs:float">
+												<xs:annotation>
+												<xs:documentation>Efficiency in liters per kWh</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="NumHVACDehumidificationSystems"
+										type="xs:int" use="required"/>
+									<xs:assert
+										test="(@NumHVACDehumidificationSystems = count(System))"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="LightingAppliances" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:element name="QualifyingLightingLtX" type="xs:float"
+											minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>percent lumens/watt less than 50</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="QualifyingLightingGeX" type="xs:float"
+											minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>percent fluorescent lighting</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="QualifyingLightingLED" type="xs:float"
+											minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>percent LED lighting</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="InteriorLightingFL" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>decimal faction for qualifying interior fluorescent lighting (Tier I)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="InteriorLightingLED" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>decimal fraction for qualifying interior LED lighting (Tier II)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ExteriorLightingFL" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>decimal fraction for qualifying exterior fluorescent lighting (Tier I)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ExteriorLightingLED" type="xs:float">
+											<xs:annotation>
+												<xs:documentation>decimal fraction for qualifying exterior LED lighting (Tier II)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="GarageLightingFL" type="xs:float"
+											minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>decimal fraction for qualifying garage fluorescent lighting (Tier I)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="GarageLightingLED" type="xs:float"
+											minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>decimal fraction qualifying garage LED lighting (Tier II)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="Refrigerator" default="standard">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="standard"/>
+												<xs:enumeration value="eStar"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="DishWasher" default="standard">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="standard"/>
+												<xs:enumeration value="eStar"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ClothesWasher" default="standard">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="standard"/>
+												<xs:enumeration value="eStar"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="ClothesDryer" default="standard">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="standard"/>
+												<xs:enumeration value="eStar"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element name="CeilingFans" default="none">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="none"/>
+												<xs:enumeration value="standard"/>
+												<xs:enumeration value="eStar"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="HotWaterSystems" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="System" minOccurs="1"
+											maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+												<xs:element name="Type">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="electric"/>
+													<xs:enumeration value="gas"/>
+													<xs:enumeration value="oil"/>
+													<xs:enumeration value="propane"/>
+													<xs:enumeration value="biomass"/>
+													<xs:enumeration value="combo"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="EfficiencyUnits">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="EF"/>
+												<xs:enumeration value="UEF"/>
+												<xs:enumeration value="CEF"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="EfficiencyValue" type="xs:float">
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="StorageCapacity" type="xs:float">
+												<xs:annotation>
+												<xs:documentation>Storage capacity (Gallons)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="NumHotWaterSystems" type="xs:int"
+										default="1"/>
+									<xs:assert test="(@NumHotWaterSystems = count(System))"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="MeasuredEnclosureTightness" minOccurs="1"
+								maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="MeasurementType">
+											<xs:annotation>
+												<xs:documentation>All Ratings using Threshold Analsyis, including all Sampled and Threshold Ratings, must use this "Threshold Type"</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="SinglePoint"/>
+												<xs:enumeration value="MultiPoint"/>
+												<xs:enumeration value="Threshold"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:choice>
+											<xs:element name="SinglePoint" minOccurs="0">
+												<xs:complexType>
+												<xs:all>
+												<xs:element name="cfm50" type="xs:float"
+												maxOccurs="unbounded"/>
+												<xs:element name="ELA" type="xs:float"
+												maxOccurs="unbounded"/>
+												</xs:all>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="MultiPoint" minOccurs="0">
+												<xs:complexType>
+												<xs:all>
+												<xs:element name="c" type="xs:float"
+												maxOccurs="unbounded"/>
+												<xs:element name="n" type="xs:float"
+												maxOccurs="unbounded"/>
+												<xs:element name="RSqrd" type="xs:float"
+												maxOccurs="unbounded"/>
+												<xs:element name="ELA" type="xs:float"
+												maxOccurs="unbounded"/>
+												</xs:all>
+												</xs:complexType>
+											</xs:element>
+											<xs:element name="Threshold" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>
+														...Threshold values must be reported for all homes using this "Measurement Type"
+														...Tested values must be reported for all Threshold Ratings
+														...Tested values must be reported for all tested homes in Samples Ratings sample sets
+													</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+												<xs:all>
+												<xs:element name="cfm50Threshold" type="xs:float"
+												minOccurs="1" maxOccurs="unbounded"/>
+												<xs:element name="ELAThreshold" type="xs:float"
+												minOccurs="1" maxOccurs="unbounded"/>
+												<xs:element name="cfm50Tested" type="xs:float"
+												minOccurs="0" maxOccurs="unbounded"/>
+												<xs:element name="ELATested" type="xs:float"
+												minOccurs="0" maxOccurs="unbounded"/>
+												</xs:all>
+												</xs:complexType>
+											</xs:element>
+										</xs:choice>
+									</xs:sequence>
+									<xs:assert
+										test="(MeasurementType[text()] = 'SinglePoint' and exists(SinglePoint)) or (MeasurementType[text()] = 'MultiPoint' and exists(MultiPoint)) or (MeasurementType[text()] = 'Threshold' and exists(Theshold))"
+									/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DuctSystems" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="System" minOccurs="1"
+											maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:all>
+												<xs:element name="Type">
+												<xs:annotation>
+												<xs:documentation>All Ratings using Threshold Analsyis, including all Sampled and Threshold Ratings, must use "Threshold Type"</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="ductless"/>
+												<xs:enumeration value="ducted"/>
+												<xs:enumeration value="Threshold ductless"/>
+												<xs:enumeration value="Threshold ducted"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="TestedLeakageException"
+												minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Dwelling must be qualified for testing exception or TestedLeakage entries are required.</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+												<xs:all>
+												<xs:element name="QualificationCertification"
+												type="xs:boolean" default="false" minOccurs="1">
+												<xs:annotation>
+												<xs:documentation>Certifies that this dwelling unit meets the requirements for duct testing exemption in accordance with the RESNET Standard.</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="ExceptionType" minOccurs="0">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="TestExemptDSE"/>
+												<xs:enumeration value="TotalLeakAlternative"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="TotalLeakTestValue"
+												type="xs:float" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Total Duct Leakage test result value (cfm25 - cubic feet per minute at 25 Pa pressurization) obtained from testing of the Rated Dwelling Unit that is qualified for Tested Leakge Exception.</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="PercentDuctInsideAttached"
+												type="xs:float" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Percentage of duct area inside the Conditioned Space Volume for Attached Dwelling Unit qualified for Tested Leakage Exception.</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="AirHandlerInsideAttached"
+												type="xs:boolean" default="false" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Determination if air handler unit is within the Conditioned Space Volume for Attached Dwelling units qualified for Tested Leakage Exception.</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:all>
+												</xs:complexType>
+												</xs:element>
+												<xs:element name="TestedLeakage" minOccurs="0">
+												<xs:complexType>
+												<xs:all>
+												<xs:element name="cfm25outThreshold"
+												type="xs:float" minOccurs="0"/>
+												<xs:element name="cfm25totalThreshold"
+												type="xs:float" minOccurs="0"/>
+												<xs:element name="QnThreshold" type="xs:float"
+												minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>If Threshold ducted, enter ...Threshold values required for all Sampled and Threshold Ratings</xs:documentation>
+												<xs:documentation>If Threshold ductless, do not enter ...Threshold values</xs:documentation>
+												<xs:documentation>Qn=cfm25out/CFA</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="cfm25outTested" type="xs:float"
+												minOccurs="0"/>
+												<xs:element name="cfm25totalTested"
+												type="xs:float" minOccurs="0"/>
+												<xs:element name="QnTested" type="xs:float"
+												minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>...Tested values required for all Confirmed Ratings, all Threshold Ratings and for the tested home in sample set for Sampled Ratings</xs:documentation>
+												<xs:documentation>Qn=cfm25out/CFA</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:all>
+												</xs:complexType>
+												</xs:element>
+												<xs:element name="SupplyDuctsCondSpace"
+												type="xs:float">
+												<xs:annotation>
+												<xs:documentation>% supply ducts located in conditioned space</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="ReturnDuctsCondSpace"
+												type="xs:float">
+												<xs:annotation>
+												<xs:documentation>% return ducts located in conditioned space</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:all>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="NumDuctSystems" type="xs:int" default="1"/>
+									<xs:assert test="(@NumDuctSystems = count(System))"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="AddedEnergyFeatures" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="OPP">
+											<xs:complexType>
+												<xs:sequence>
+												<xs:element name="CheckOPP" type="xs:boolean"
+												default="false" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation> On-site Power Production (OPP)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="Type" minOccurs="0">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="PV"/>
+												<xs:enumeration value="CHP"/>
+												<xs:enumeration value="wind"/>
+												<xs:enumeration value="other"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="NetPowerProduction"
+												type="xs:float" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Net power production</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:sequence>
+												<xs:assert
+												test="((CheckOPP[text()] = false() and not(Type) and not(NetPowerProduction)) or (CheckOPP[text()] = true() and exists(Type) and exists(NetPowerProduction)))"
+												/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="SolarHotWaterSystems" minOccurs="0"
+											maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+												<xs:element name="SHWS" type="xs:boolean"
+												default="false">
+												<xs:annotation>
+												<xs:documentation> Solar Hot Water Systems</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="Type" minOccurs="0">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="direct"/>
+												<xs:enumeration value="indirect"/>
+												<xs:enumeration value="ICS"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="ProjectedSavings"
+												type="xs:float" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Enter Projected annual MBtu savings for Solar Hot Water System</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="SolarFraction" type="xs:float"
+												minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Enter the Solar Fraction as a decimal value for solar hot water system)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:sequence>
+												<xs:assert
+												test="((SHWS[text()] = false() and not(Type) and not(ProjectedSavings) and not(SolarFraction)) or (SHWS[text()] = true() and exists(Type) and exists(ProjectedSavings) and exists(SolarFraction)))"
+												/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="DWHR" minOccurs="1" maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+												<xs:element name="CheckDWHR" type="xs:boolean"
+												default="false" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Drain Water Heat Recovery Systems (DWHR)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="DWHREfficiency" type="xs:float"
+												default="46" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>DWHR efficiency (% - default = 46%)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="FacilitiesServed" default="one"
+												minOccurs="0">
+												<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="one"/>
+												<xs:enumeration value="all"/>
+												</xs:restriction>
+												</xs:simpleType>
+												</xs:element>
+												<xs:element name="EqualFlow" type="xs:boolean"
+												default="false" minOccurs="0"/>
+												<xs:element name="ProjectedSavings"
+												type="xs:float" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Projected Savings (MBtu/y = Rated EC_x - Reference EC_r)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:sequence>
+												<xs:assert
+												test="((CheckDWHR[text()] = false() and not(DWHREfficiency) and not(FacilitiesServed) and not(EqualFlow) and not(ProjectedSavings)) or (CheckDWHR[text()] = true() and exists(DWHREfficiency) and exists(FacilitiesServed) and exists(EqualFlow) and exists(ProjectedSavings)))"
+												/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ACHotWaterHeatRecovery" minOccurs="1"
+											maxOccurs="1">
+											<xs:complexType>
+												<xs:sequence>
+												<xs:element name="ACHWHRecovery" type="xs:boolean"
+												default="false">
+												<xs:annotation>
+												<xs:documentation>Air Conditioner Heat Recovery Unit (HRU) also known as a desuperheater</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="ProjectedSavings"
+												type="xs:float" minOccurs="0">
+												<xs:annotation>
+												<xs:documentation>Projected Savings (MBtu/y = Rated EC_x - Reference EC_r)</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:sequence>
+												<xs:assert
+												test="((ACHWHRecovery[text()] = false() and not(ProjectedSavings)) or (ACHWHRecovery[text()] = true() and exists(ProjectedSavings)))"
+												/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="WholeHEEffDesignations" minOccurs="0" maxOccurs="2">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="EPAEStarNewHome" type="xs:boolean"
+											default="false"/>
+										<xs:element name="DOEZHRH" type="xs:boolean" default="false"
+										/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="WarningFlags" minOccurs="1" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="BuildingAttributeFlags">
+								<xs:annotation>
+									<xs:documentation>[See Section 5.1, RESNET Publication 002-15 for full explanation of elements in this element}</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="StoriesAboveGradeValue" type="xs:int"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Integer equal to the number of stories above grade; GE 1 and LE 4]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="AverageCeilingHeightValue" type="xs:float"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Floating point value equal to the volume/CFA expressed in feet; GE 7 and LE 15]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="BelowGradeSlabFloorsValue" type="xs:int"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Integer equal to the number of below grade slab floors; GE 1 if below grade walls]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="BelowGradeWallsValue" type="xs:int"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Integer equal to the number of below grade walls: GE 1 if bleow grade slab floors]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+
+										<xs:element name="CrawlSpacePerimeterValue" type="xs:float"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Floating point value equal to crawl space perimeter expressed in feet; GE 1 and LE (Enclosure Floor Area)^0.5*7]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="BasementPerimeterValue" type="xs:float"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Floating point value equal to basement perimeter expressed in feet; GE 1 and LE (Enclosure Floor Area)^0.5*7]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="SlabGradePerimeterValue" type="xs:float"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Floating point value equal to the slab perimeter expressed in feet; GE 1 and LE (Enclosure Floor Area)^0.5*7]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="FoundationWallHeightValue" type="xs:float"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Floating point value equal to the foundation wall height from ground level to top of foundation expressed in feet; GT 0 and LE 20]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="BasementWallDepthValue" type="xs:float"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Floating point value equal to the basement wall depth below grade expressed in feet; GE 2 and LE (wall height - 0.5)]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="EnclosureFloorAreaValue" type="xs:float"
+											minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Floating point value equal to the enclosure floor area expressed in feet]</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="EnclosureGrossWallAreaValue"
+											type="xs:float" minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Floating point value equal to gross wall area of the enclosure expressed in square feet</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="NumberConditionedStories"
+											type="xs:integer" minOccurs="1" maxOccurs="1">
+											<xs:annotation>
+												<xs:documentation>[Integer value equal to number of conditioned stories, including conditioned basements</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ApplianceVerificationFlags" minOccurs="1"
+								maxOccurs="1">
+								<xs:annotation>
+									<xs:documentation>[See Section 5.3, RESNET Publication 002-15 for details on this element. Include the value for each of the available appliance types]</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ClothesWashersValue" type="xs:float"
+											minOccurs="1" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>{Floating point value [(21*Nbr+73)> CWkWh >(4.7*Nbr+16.4)]}</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="ElectricDryersValue" type="xs:float"
+											minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>{Floating point value [(163*Nbr+577)> eCDkWh >(55*Nbr+194)]}</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="GasDryersThermsValue" type="xs:float"
+											minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>{Floating point value [(5.9*Nbr+20.6)> gCDtherms >(2.0*Nbr+6.9)]}</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="GasDryersKWHValue" type="xs:float"
+											minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>{Floating point value [(12.9*Nbr+45.5)> gCDkWh >(4.3*Nbr+15.3)]}</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="CWHotWaterSavingsValue" type="xs:float"
+											minOccurs="1" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>{Floating point value [(0.59*Nbr+2.1)> CW HWgalSaved/day]}</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+									<xs:assert
+										test="((exists(ElectricDryersValue)) or (exists(GasDryersThermsValue) and exists(GasDryersKWHValue)))"
+									/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="EPAEstarType">
+		<xs:sequence>
+			<xs:element name="EPAEnergyStarQualified" type="xs:boolean" default="false"
+				minOccurs="1"/>
+			<xs:element name="VersionNo" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="USv3.0">
+							<xs:annotation>
+								<xs:documentation>National version 3.0</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="USv3.1">
+							<xs:annotation>
+								<xs:documentation>National version 3.1</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="CAv3.0">
+							<xs:annotation>
+								<xs:documentation>California version 3.0</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="CAv3.1">
+							<xs:annotation>
+								<xs:documentation>California version 3.1</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="CAv3.2">
+							<xs:annotation>
+								<xs:documentation>California version 3.2</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="FLv3.0">
+							<xs:annotation>
+								<xs:documentation>Florida version 3.0</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="FLv3.1">
+							<xs:annotation>
+								<xs:documentation>Florida version 3.1</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="GHPv3.0">
+							<xs:annotation>
+								<xs:documentation>Guam, Hawaii and the Northan Mariana Islands version 3.0</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="PRVIv3.0">
+							<xs:annotation>
+								<xs:documentation>Puerto Rico and US Virgin Islands version 3.0</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="WAv3.2">
+							<xs:annotation>
+								<xs:documentation>Washington State version 3.2</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="MFUSv1">
+							<xs:annotation>
+								<xs:documentation>National MFNC version 1</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="MFUSv1.1">
+							<xs:annotation>
+								<xs:documentation>National MFNC version 1.1</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="MFCAv1.2">
+							<xs:annotation>
+								<xs:documentation>California MFNC version 1.2</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+						<xs:enumeration value="MFWAv1.2">
+							<xs:annotation>
+								<xs:documentation>Washington State + Oregon MFNC version 1.2</xs:documentation>
+							</xs:annotation>
+						</xs:enumeration>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="EPAQualificationScores" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SizeHERSTarget" type="xs:float" minOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Size Adjusted HERS Index Target (required if qualified = 'true')</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="SizeAdjFactor" type="xs:float" minOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Size Adjustment Factor (required if qualified = 'true')</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="HERSWithoutOPP" type="xs:float" minOccurs="1">
+							<xs:annotation>
+								<xs:documentation>HERS Index without OPP (required if qualified = 'true')</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EPAEstarCertifications" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CheckInsulationInstallGrade" type="xs:boolean"
+							minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>All entries for insulation installation grade equal Grade I? (true/false)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CheckODDuctLeakage" type="xs:boolean" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Duct leakage to outdoors (less than or equal to) the greater of 4 CFM / 100 sq ft of CFA or 40 CFM for all duct systems? (true/false)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CheckTotalDuctLeakage" type="xs:boolean" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Total duct leakage (less than or equal to) the greater of 12 CFM / 100 sq ft of CFA or 120 CFM for all duct systems? (true/false)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:assert
+			test="(EPAEnergyStarQualified = false()) or (EPAEnergyStarQualified and exists(VersionNo) and exists(EPAQualificationScores))"
+		/>
+	</xs:complexType>
+	<xs:complexType name="DOEZERHType">
+		<xs:sequence>
+			<xs:element name="DOEZERHQualified" type="xs:boolean" default="false" minOccurs="1"/>
+			<xs:element name="ZERHPartnerID" type="xs:string"/>
+			<xs:element name="RegisteredBuilder" type="xs:string"/>
+			<xs:element name="DOEQualificationScores" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="SizeHERSTarget" type="xs:float" minOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Size Adjusted HERS Index Target (required if qualified = 'true')</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="SizeAdjFactor" type="xs:float" minOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Size Adjustment Factor (required if qualified = 'true')</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="HERSWithoutOPP" type="xs:float" minOccurs="1">
+							<xs:annotation>
+								<xs:documentation>HERS Index without OPP (required if qualified = 'true')</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CondSpaceIncBasement" type="xs:float" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Conditioned space including basement (floating point value)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CondSpaceExBasement" type="xs:float" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Conditioned space excluding basement (floating point value)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EstimatedAnnualEnergySavings">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Electric" type="xs:float" default="0" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Electric kWh/year (floating point value - default = 0)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="NaturalGas" type="xs:float" default="0" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Natural gas therms/year (floating point value - default = 0)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FuelOil" type="xs:float" default="0" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Fuel Oil gallons/year (floating point value - default = 0)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Propane" type="xs:float" default="0" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Propane gallons/year (floating point value - default = 0)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="EstimatedAnnualEmissionReductions">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CO2" type="xs:float" default="0" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>CO2 ton/year (floating point value - default = 0)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="SO2" type="xs:float" default="0" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>SO2 lb/year (floating point value - default = 0)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="NOx" type="xs:float" default="0" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>NOx lb/year (floating point value - default = 0)</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RaterCertification" type="xs:boolean" default="false" minOccurs="1"/>
+			<xs:element name="EStarV3" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets EnergyStar v3 requirement (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Fenestration" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets mandatory Fenestration requirement (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Insulation" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets mandatory Insulation requirements (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DuctLocation" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets mandatory duct location  (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Appliances" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets mandatory appliances requirements (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Lighting" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets mandatory lighting requirement (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FanEfficiency" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets mandatory fan efficiency requirement (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IndoorairPLUS" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets mandatory Indoor airPLUS requirement (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DHWdistribution" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets mandatory Hot Water distribution requirements (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RenewableReady" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Meets mandatory Renewable Ready Home requirements (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QualifiedviaSampling" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Home qualified via sampling (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CertifiedEPAWaterSense" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Certified EPA WaterSense (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CertifiedBHSFortified" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Certified IBHS Fortified (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FollowedDOEZERHGuide" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Followed DOE ZERH Quality Management Guide (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SignedUtilityWaiver" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Buyer signed utility bill waiver (true/false - default = false)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:assert
+			test="(DOEZERHQualified = false()) or (DOEZERHQualified[text()] and (exists(DOEQualificationScores)))"
+		/>
+	</xs:complexType>
+	<xs:complexType name="OPQType">
+		<xs:sequence>
+			<xs:element name="OPQQualified" type="xs:boolean" default="false" minOccurs="1"/>
+			<xs:element name="OPQPrograms" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence maxOccurs="unbounded">
+						<xs:element name="Program" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Name of EE program for which home qualifies</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:all>
+									<xs:element name="name" type="xs:string"/>
+								</xs:all>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="NumOPQs" type="xs:int" use="required"/>
+					<xs:assert test="(@NumOPQs = count(Program))"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:assert test="(OPQQualified = false()) or (OPQQualified and (OPQPrograms/@NumOPQs > 0))"
+		/>
+	</xs:complexType>
+</xs:schema>
