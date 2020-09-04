@@ -73,3 +73,6 @@ January 1, 2020
 January 2, 2020
     Updated version numbering to include additional numbering for patches to follow Semantic X.Y.Z Versioning rules
     
+September 4, 2020
+    Updated to version 2.13.7 to include HVAC Comissioningdate in element HVACComissioning. Also includes changes to annotations in TestedLeakageException element.
+    
