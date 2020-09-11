@@ -75,4 +75,6 @@ January 2, 2020
     
 September 4, 2020
     Updated to version 2.13.7 to include HVAC Comissioningdate in element HVACComissioning. Also includes changes to annotations in TestedLeakageException element.
-    
+
+September 11, 2020
+    Updated version number from 2.13.7 to 2.14.02 to include xerces enhancements to assets
