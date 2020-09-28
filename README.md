@@ -78,3 +78,6 @@ September 4, 2020
 
 September 11, 2020
     Updated version number from 2.13.7 to 2.14.02 to include xerces enhancements to assets
+
+September 28, 2020
+    Updated to version number 2.14.03, which makes certain Priority 2 and Priority 3 schema inputs optional.
