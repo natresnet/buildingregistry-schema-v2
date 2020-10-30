@@ -1155,13 +1155,13 @@
 												<xs:element name="PercentDuctInsideAttached"
 												type="xs:float" minOccurs="0">
 												<xs:annotation>
-												<xs:documentation>Percentage of duct area inside the Conditioned Space Volume for Attached Dwelling Unit qualified for Tested Leakage Exception.</xs:documentation>
+												<xs:documentation>Percentage of duct area inside the Conditioned Space Volume for Attached Dwelling Unit qualified for Tested Leakage Exception using ExceptionType = TotalLeakAlternative. Not for use with ExceptionType = TestExemptDSE.</xs:documentation>
 												</xs:annotation>
 												</xs:element>
 												<xs:element name="AirHandlerInsideAttached"
 												type="xs:boolean" default="false" minOccurs="0">
 												<xs:annotation>
-												<xs:documentation>Determination if air handler unit is within the Conditioned Space Volume for Attached Dwelling units qualified for Tested Leakage Exception.</xs:documentation>
+												<xs:documentation>Determination if air handler unit is within the Conditioned Space Volume for Attached Dwelling units qualified for Tested Leakage Exception using ExceptionType = TotalLeakAlternative. Not for use with ExceptionType = TestExemptDSE.</xs:documentation>
 												</xs:annotation>
 												</xs:element>
 												</xs:all>
@@ -1530,8 +1530,9 @@
 												</xs:annotation>
 												</xs:element>
 												</xs:all>
-												<xs:assert   
-												test="not(AirflowTestMethod = 'Static Pressure Table') or PressureDiffOEM" xerces:message="AirflowTestMethod is 'Static Pressure Table' so please enter PresessureDiffOEM."/>
+												<xs:assert
+												test="not(AirflowTestMethod = 'Static Pressure Table') or PressureDiffOEM"
+												xerces:message="AirflowTestMethod is 'Static Pressure Table' so please enter PresessureDiffOEM."/>
 												<xs:assert
 												test="not(TestmethodRefrigerantCharge = 'Non-Invasive' and MeteringDeviceType = 'Piston/Cap Tube') or DifferenceDTD"
 												xerces:message="TestmethodRefrigerantCharge is 'Non-Invasive' and MeteringDeviceType 'Piston/Cap Tube' so please enter DifferenceDTD."/>
