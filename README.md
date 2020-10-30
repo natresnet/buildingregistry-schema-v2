@@ -81,3 +81,6 @@ September 11, 2020
 
 September 28, 2020
     Updated to version number 2.14.03, which makes certain Priority 2 and Priority 3 schema inputs optional.
+
+October 30, 2020
+    Small changes to annotations describing actions for PercentDuctInsideAttached and AirHandlerInside elements
