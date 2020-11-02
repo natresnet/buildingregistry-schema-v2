@@ -84,3 +84,7 @@ September 28, 2020
 
 October 30, 2020
     Small changes to annotations describing actions for PercentDuctInsideAttached and AirHandlerInside elements
+
+November 2, 2020
+    Update to version 2.`14.04, which moves simple types from refs into their respective elements
+
