@@ -1401,7 +1401,7 @@
 												</xs:annotation>
 												</xs:element>
 												<xs:element name="TotalDuctLeakage"
-												type="xs:float">
+												type="xs:float" minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>Total normalized duct leakage served by system (cfm25/CFA)</xs:documentation>
 												</xs:annotation>
@@ -1411,16 +1411,16 @@
 												<xs:annotation>
 												<xs:documentation>Total Duct Leakage Grade Designation</xs:documentation>
 												</xs:annotation>
-													<xs:simpleType>
-														<xs:annotation>
-															<xs:documentation/>
-														</xs:annotation>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="I"/>
-															<xs:enumeration value="II"/>
-															<xs:enumeration value="III"/>
-														</xs:restriction>
-													</xs:simpleType>
+												<xs:simpleType>
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="I"/>
+												<xs:enumeration value="II"/>
+												<xs:enumeration value="III"/>
+												</xs:restriction>
+												</xs:simpleType>
 												</xs:element>
 												<xs:element name="BlowerFanAirflowException"
 												type="xs:boolean" default="false">
@@ -1428,22 +1428,21 @@
 												<xs:documentation>Was Blower Fan Airflow exception used?</xs:documentation>
 												</xs:annotation>
 												</xs:element>
-												<xs:element name="AirflowTestMethod"
-												 minOccurs="0">
+												<xs:element name="AirflowTestMethod" minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>Airflow test method</xs:documentation>
 												</xs:annotation>
-													<xs:simpleType>
-														<xs:annotation>
-															<xs:documentation/>
-														</xs:annotation>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Pressure Matching"/>
-															<xs:enumeration value="Flow Grid"/>
-															<xs:enumeration value="Flow Hood"/>
-															<xs:enumeration value="Static Pressure Table"/>
-														</xs:restriction>
-													</xs:simpleType>
+												<xs:simpleType>
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="Pressure Matching"/>
+												<xs:enumeration value="Flow Grid"/>
+												<xs:enumeration value="Flow Hood"/>
+												<xs:enumeration value="Static Pressure Table"/>
+												</xs:restriction>
+												</xs:simpleType>
 												</xs:element>
 												<xs:element name="BlowerfanAirflowDesignSpecified"
 												type="xs:int">
@@ -1452,7 +1451,7 @@
 												</xs:annotation>
 												</xs:element>
 												<xs:element name="BlowerfanAirflowOpCond"
-												type="xs:int">
+												type="xs:int" minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>Blower fan airflow at operating conditions (CFM)</xs:documentation>
 												</xs:annotation>
@@ -1472,32 +1471,36 @@
 												<xs:annotation>
 												<xs:documentation>Blower fan volumetric airflow grade</xs:documentation>
 												</xs:annotation>
-													<xs:simpleType>
-														<xs:annotation>
-															<xs:documentation/>
-														</xs:annotation>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="I"/>
-															<xs:enumeration value="II"/>
-															<xs:enumeration value="III"/>
-														</xs:restriction>
-													</xs:simpleType>
+												<xs:simpleType>
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="I"/>
+												<xs:enumeration value="II"/>
+												<xs:enumeration value="III"/>
+												</xs:restriction>
+												</xs:simpleType>
 												</xs:element>
-												<xs:element name="TestmethodBlowerFanWattDraw" minOccurs="0">
+												<xs:element name="TestmethodBlowerFanWattDraw"
+												minOccurs="0">
 												<xs:annotation>
 												<xs:documentation>Test method for measuring blower fan watt draw</xs:documentation>
 												</xs:annotation>
-													<xs:simpleType>
-														<xs:annotation>
-															<xs:documentation/>
-														</xs:annotation>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Portable Plug-In Watt Mater"/>
-															<xs:enumeration value="Clamp-On Watt Meter"/>
-															<xs:enumeration value="Analog Utility Revenue Meter"/>
-															<xs:enumeration value="Digital Utility Revenue Meter"/>
-														</xs:restriction>
-													</xs:simpleType>
+												<xs:simpleType>
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												<xs:restriction base="xs:string">
+												<xs:enumeration
+												value="Portable Plug-In Watt Mater"/>
+												<xs:enumeration value="Clamp-On Watt Meter"/>
+												<xs:enumeration
+												value="Analog Utility Revenue Meter"/>
+												<xs:enumeration
+												value="Digital Utility Revenue Meter"/>
+												</xs:restriction>
+												</xs:simpleType>
 												</xs:element>
 												<xs:element name="BlowerfanWattDraw" type="xs:int">
 												<xs:annotation>
@@ -1514,16 +1517,16 @@
 												<xs:annotation>
 												<xs:documentation>Blower fan watt draw grade</xs:documentation>
 												</xs:annotation>
-													<xs:simpleType>
-														<xs:annotation>
-															<xs:documentation/>
-														</xs:annotation>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="I"/>
-															<xs:enumeration value="II"/>
-															<xs:enumeration value="III"/>
-														</xs:restriction>
-													</xs:simpleType>
+												<xs:simpleType>
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="I"/>
+												<xs:enumeration value="II"/>
+												<xs:enumeration value="III"/>
+												</xs:restriction>
+												</xs:simpleType>
 												</xs:element>
 												<xs:element name="AltSourceValuesWithinLimits"
 												type="xs:boolean" default="false">
@@ -1535,29 +1538,31 @@
 												<xs:annotation>
 												<xs:documentation>Test method for assessing refrigerant charge</xs:documentation>
 												</xs:annotation>
-													<xs:simpleType>
-														<xs:annotation>
-															<xs:documentation/>
-														</xs:annotation>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Non-Invasive"/>
-															<xs:enumeration value="Weigh-In"/>
-														</xs:restriction>
-													</xs:simpleType>
+												<xs:simpleType>
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="Non-Invasive"/>
+												<xs:enumeration value="Weigh-In"/>
+												<xs:enumeration value="Not Applicable"/>
+												</xs:restriction>
+												</xs:simpleType>
 												</xs:element>
 												<xs:element name="MeteringDeviceType">
 												<xs:annotation>
 												<xs:documentation>Metering device type</xs:documentation>
 												</xs:annotation>
-													<xs:simpleType>
-														<xs:annotation>
-															<xs:documentation/>
-														</xs:annotation>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="Piston/Cap Tube"/>
-															<xs:enumeration value="TXV/EEV"/>
-														</xs:restriction>
-													</xs:simpleType>
+												<xs:simpleType>
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="Piston/Cap Tube"/>
+												<xs:enumeration value="TXV/EEV"/>
+												<xs:enumeration value="Not Applicable"/>
+												</xs:restriction>
+												</xs:simpleType>
 												</xs:element>
 												<xs:element name="MeasuredOutdoorAirDryBulbTemp"
 												type="xs:float" minOccurs="0">
@@ -1594,16 +1599,16 @@
 												<xs:annotation>
 												<xs:documentation>Refrigerant charge grade designation</xs:documentation>
 												</xs:annotation>
-													<xs:simpleType>
-														<xs:annotation>
-															<xs:documentation/>
-														</xs:annotation>
-														<xs:restriction base="xs:string">
-															<xs:enumeration value="I"/>
-															<xs:enumeration value="II"/>
-															<xs:enumeration value="III"/>
-														</xs:restriction>
-													</xs:simpleType>
+												<xs:simpleType>
+												<xs:annotation>
+												<xs:documentation/>
+												</xs:annotation>
+												<xs:restriction base="xs:string">
+												<xs:enumeration value="I"/>
+												<xs:enumeration value="II"/>
+												<xs:enumeration value="III"/>
+												</xs:restriction>
+												</xs:simpleType>
 												</xs:element>
 												</xs:all>
 												<xs:assert
@@ -1617,7 +1622,7 @@
 												xerces:message="TestmethodRefrigerantCharge is 'Non-Invasive' and MeteringDeviceType 'TXV/EEV' so please enter DifferenceCTOA."/>
 												<xs:assert
 												test="not(TestmethodRefrigerantCharge = 'Weigh-In') or Deviation"
-												xerces:message="TestmethodRefrigerantCharge 'Weigh-In' so please enter Deviation."
+												xerces:message="TestmethodRefrigerantCharge is 'Weigh-In' so please enter Deviation."
 												/>
 											</xs:complexType>
 										</xs:element>
@@ -2087,5 +2092,5 @@
 		</xs:sequence>
 		<xs:assert test="(OPQQualified = false()) or (OPQQualified and (OPQPrograms/@NumOPQs > 0))"
 		/>
-	</xs:complexType>	
+	</xs:complexType>
 </xs:schema>
