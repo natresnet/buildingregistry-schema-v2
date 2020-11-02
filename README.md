@@ -87,4 +87,4 @@ October 30, 2020
 
 November 2, 2020
     Update to version 2.`14.04, which moves simple types from refs into their respective elements
-
+    Added new enumerations (Not Applicable) for TestmetnodRefrigerantCharge and MeteringDeviceType
