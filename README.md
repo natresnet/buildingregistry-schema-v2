@@ -75,4 +75,16 @@ January 2, 2020
     
 September 4, 2020
     Updated to version 2.13.7 to include HVAC Comissioningdate in element HVACComissioning. Also includes changes to annotations in TestedLeakageException element.
-    
+
+September 11, 2020
+    Updated version number from 2.13.7 to 2.14.02 to include xerces enhancements to assets
+
+September 28, 2020
+    Updated to version number 2.14.03, which makes certain Priority 2 and Priority 3 schema inputs optional.
+
+October 30, 2020
+    Small changes to annotations describing actions for PercentDuctInsideAttached and AirHandlerInside elements
+
+November 2, 2020
+    Update to version 2.`14.04, which moves simple types from refs into their respective elements.
+    Added new enumerations (Not Applicable) for TestmetnodRefrigerantCharge and MeteringDeviceType
