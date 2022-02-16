@@ -86,8 +86,12 @@ October 30, 2020
     Small changes to annotations describing actions for PercentDuctInsideAttached and AirHandlerInside elements
 
 November 2, 2020
-    Update to version 2.`14.04, which moves simple types from refs into their respective elements.
+    Update to version 2.14.04, which moves simple types from refs into their respective elements.
     Added new enumerations (Not Applicable) for TestmetnodRefrigerantCharge and MeteringDeviceType
     
 January 29, 2021
     Update to version 2.14.06 to make BlowerfanWattDraw and BlowerfanEfficiency minOccurs = "0"
+    
+February 16, 2022
+    Major update to version 3.0.01 to include IECC 2009 and 2018 Section 405 performance compliance reporting data.
+    
