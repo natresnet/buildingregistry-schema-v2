@@ -1,7 +1,7 @@
 <!--
-	Copyright (c) 2021. Residential Energy Services Network (RESNET)
+	Copyright (c) 2022. Residential Energy Services Network (RESNET)
 	Version 3.0.01
-	Last Modified: August 9, 2021
+	Last Modified: February 16, 2022
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1" xmlns:xerces="http://xerces.apache.org">
 	<xs:element name="Project">
