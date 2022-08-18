@@ -96,9 +96,9 @@ February 16, 2022
     Major update to version 3.0.01 to include IECC 2009 and 2018 Section 405 performance compliance reporting data.
     
 March 15, 2022
-    Version 3.0.01 temporarily withdrawn
+    Version 3.0.01 temporarily withdrawn.
     
 August 18, 2022
-    Version 3.0.01 deleted until revised
+    Version 3.0.01 deleted until revised.
     
     
