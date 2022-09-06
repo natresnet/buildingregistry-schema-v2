@@ -34,6 +34,8 @@ Update to version 2.07 January 4, 2018
     Modified documentation accordingly.
     
 Update to version 2.07 January 9, 2018
+
+
     Added element for IADsave 
 
 Version 2.08 added March 8, 2018
@@ -100,5 +102,8 @@ March 15, 2022
     
 August 18, 2022
     Version 3.0.01 deleted until revised.
+    
+September 6, 2022
+    Update to Version 2.14.07 to incorporate new optional element for EPANexGenQualified and added enumerations for EPA NextGen and ENERGY STAR version numbers.
     
     
