@@ -88,3 +88,5 @@ https://schema.resnet.us/
 * August 18, 2022: Version 3.0.01 deleted until revised.
     
 * September 6, 2022: Update to Version 2.14.07 to incorporate new optional element for EPANexGenQualified and added enumerations for EPA NextGen and ENERGY STAR version numbers and added new IAP element under ProgramTypes
+
+* January 18, 2023: Addition of SEER2 and HSPF2 enumerations
