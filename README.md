@@ -90,3 +90,5 @@ https://schema.resnet.us/
 * September 6, 2022: Update to Version 2.14.07 to incorporate new optional element for EPANexGenQualified and added enumerations for EPA NextGen and ENERGY STAR version numbers and added new IAP element under ProgramTypes
 
 * January 18, 2023: Addition of SEER2 and HSPF2 enumerations
+
+* September 29, 2023: Performs the ZERH v2 qualification calculations and contains all of the Program requirement checks
