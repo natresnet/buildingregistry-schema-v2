@@ -92,5 +92,3 @@ https://schema.resnet.us/
 * January 18, 2023: Addition of SEER2 and HSPF2 enumerations
 
 * September 29, 2023: Performs the ZERH v2 qualification calculations and contains all of the Program requirement checks
-
-* October 2, 2023: Addition of Projected Rating
