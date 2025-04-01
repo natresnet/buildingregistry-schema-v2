@@ -92,3 +92,5 @@ https://schema.resnet.us/
 * January 18, 2023: Addition of SEER2 and HSPF2 enumerations
 
 * September 7, 2023: Performs the ZERH v2 qualification calculations and contains all of the Program requirement checks
+
+* April 1, 2025: The enumerations for Indoor airPlus version 2 have been updated to include IAPv2.0 Certified and IAPv2.0 Gold. The TestmethodRefrigerantCharge field has new enumerations.
