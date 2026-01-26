@@ -96,3 +96,11 @@ https://schema.resnet.us/
 * April 1, 2025: The enumerations for Indoor airPlus version 2 have been updated to include IAPv2.0 Certified and IAPv2.0 Gold. The TestmethodRefrigerantCharge field has new enumerations.
 
 * May 29, 2025: Update to Version 2.14.11 to include two updates to Energy Star program versions. National version 4.0 to National version 3.3 and National MFNC version 4.0 to National MFNC version 1.3.
+
+* Jan 26, 2026: Adding Version 2.14.12 introducing:
+  - New field "HomeConstructedOffsite". This is a boolean field to identify homes in the offsite construction pilot program.
+  - New enumeration "Manufactured Home" has been added to the HomeTypeID element.
+  - New "ManufacturedHome" element which includes fields for "HUDThermalZone", NumOfSections", "ManufacturedHomeSerialNum" and "ManufacturedHomeFacilityName". 
+    These fields are required when the HomeTypeID = Manufactured Home.
+
+* Jan 26, 2026: Adding Version 2.14.13 which introduces HouseRater and APEX enumerations to the software element
