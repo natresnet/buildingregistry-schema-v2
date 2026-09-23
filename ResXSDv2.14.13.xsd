@@ -109,7 +109,7 @@
 				</xs:element>
 				<xs:element name="Verifiers" minOccurs="1" maxOccurs="1">
 					<xs:complexType>
-						<xs:sequence maxOccurs="unbounded">
+						<xs:sequence>
 							<xs:element name="Verifier" minOccurs="1" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:all>
@@ -546,7 +546,7 @@
 							<xs:element name="OPPNet" type="xs:float"/>
 							<xs:element name="PEfrac" type="xs:float"/>
 							<xs:element name="IADsave" type="xs:float" minOccurs="0"/>
-							<xs:element name="CO2eIndex " type="xs:float" minOccurs="0"/>
+							<xs:element name="CO2eIndex" type="xs:float" minOccurs="0"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -1163,7 +1163,7 @@
 									<xs:sequence>
 										<xs:element name="MeasurementType">
 											<xs:annotation>
-												<xs:documentation>All Ratings using Threshold Analsyis, including all Sampled and Threshold Ratings, must use this "Threshold Type"</xs:documentation>
+												<xs:documentation>All Ratings using Threshold Analysis, including all Sampled and Threshold Ratings, must use this "Threshold Type"</xs:documentation>
 											</xs:annotation>
 											<xs:simpleType>
 												<xs:restriction base="xs:string">
@@ -1222,7 +1222,7 @@
 										</xs:choice>
 									</xs:sequence>
 									<xs:assert
-										test="(MeasurementType[text()] = 'SinglePoint' and exists(SinglePoint)) or (MeasurementType[text()] = 'MultiPoint' and exists(MultiPoint)) or (MeasurementType[text()] = 'Threshold' and exists(Theshold))"
+										test="(MeasurementType[text()] = 'SinglePoint' and exists(SinglePoint)) or (MeasurementType[text()] = 'MultiPoint' and exists(MultiPoint)) or (MeasurementType[text()] = 'Threshold' and exists(Threshold))"
 									/>
 								</xs:complexType>
 							</xs:element>
@@ -1235,7 +1235,7 @@
 												<xs:all>
 												<xs:element name="Type">
 												<xs:annotation>
-												<xs:documentation>All Ratings using Threshold Analsyis, including all Sampled and Threshold Ratings, must use "Threshold Type"</xs:documentation>
+												<xs:documentation>All Ratings using Threshold Analysis, including all Sampled and Threshold Ratings, must use "Threshold Type"</xs:documentation>
 												</xs:annotation>
 												<xs:simpleType>
 												<xs:restriction base="xs:string">
@@ -1733,7 +1733,7 @@
 												</xs:all>
 												<xs:assert
 												test="not(AirflowTestMethod = 'Static Pressure Table') or PressureDiffOEM"
-												xerces:message="AirflowTestMethod is 'Static Pressure Table' so please enter PresessureDiffOEM."/>
+												xerces:message="AirflowTestMethod is 'Static Pressure Table' so please enter PressureDiffOEM."/>
 												<xs:assert
 												test="not(TestmethodRefrigerantCharge = 'Non-Invasive' and MeteringDeviceType = 'Piston/Cap Tube') or DifferenceDTD"
 												xerces:message="TestmethodRefrigerantCharge is 'Non-Invasive' and MeteringDeviceType 'Piston/Cap Tube' so please enter DifferenceDTD."/>
