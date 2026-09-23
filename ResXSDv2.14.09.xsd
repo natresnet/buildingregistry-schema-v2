@@ -1099,7 +1099,7 @@
 									<xs:sequence>
 										<xs:element name="MeasurementType">
 											<xs:annotation>
-												<xs:documentation>All Ratings using Threshold Analsyis, including all Sampled and Threshold Ratings, must use this "Threshold Type"</xs:documentation>
+												<xs:documentation>All Ratings using Threshold Analysis, including all Sampled and Threshold Ratings, must use this "Threshold Type"</xs:documentation>
 											</xs:annotation>
 											<xs:simpleType>
 												<xs:restriction base="xs:string">
@@ -1161,7 +1161,7 @@
 												<xs:all>
 													<xs:element name="Type">
 														<xs:annotation>
-															<xs:documentation>All Ratings using Threshold Analsyis, including all Sampled and Threshold Ratings, must use "Threshold Type"</xs:documentation>
+															<xs:documentation>All Ratings using Threshold Analysis, including all Sampled and Threshold Ratings, must use "Threshold Type"</xs:documentation>
 														</xs:annotation>
 														<xs:simpleType>
 															<xs:restriction base="xs:string">
